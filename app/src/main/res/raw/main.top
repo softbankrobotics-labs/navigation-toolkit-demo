@@ -1,0 +1,264 @@
+topic: ~main()
+
+###Home page###
+u:($empty)%start
+^rand["Hi!" "Hello!" "Hi there!"]
+^rand[
+    "Let me help you. What are you looking for?"
+    "What shall we do now?"
+    "Let's see, what are you looking for?"
+]
+
+u:([
+    "[come walk] [here closer "{next} to me"]"
+    "get [here closer]"
+    "[move come go] forward"
+])%come_here
+\pau=1\
+
+u:([
+    "follow me"
+    "come with me"
+    "let's take a walk"
+    "let's walk together"
+    "let's go together"
+    "come on"
+])%follow_me
+\pau=1\
+
+u:([
+    "[
+        "[can could may] I"
+        "is it possible ["{"for me"} to" "that I"]"
+    ][
+        "control you"
+        "[drive walk move] you {around}"
+        "make you [walk roll move] {around}"
+    ] {"with [a the] gamepad"}?"
+
+    "[
+        "[can could may] I"
+        "is it possible ["{"for me"} to" "that I"]"
+    ] use [a the] gamepad?"
+
+    "[
+        "I [want wish]"
+        "[I'll I'd "I would"] [like love]"
+    ] to [
+        "control you"
+        "[drive walk move] you {around}"
+        "make you [walk roll move] {around}"
+    ] {"with [a the] gamepad"}"
+
+    "[
+        "I [want wish]"
+        "[I'll I'd "I would"] [like love]"
+    ] to use [a the] gamepad"
+
+    "gamepad {control}"
+])%gamepad
+
+u:([
+    "{start "do {some}" go} mapping"
+    "[create do] [a the your] map"
+])%display_mapping_menu
+
+u:([
+    "go to {the your} pod"
+    "{"go to"} {the your} {charging} station"
+])
+^rand["Ok, " "All right, "]
+^rand[
+    "I'm going to my pod."
+    "I'll go to my pod."
+    "going to my pod now."
+]
+%go_to_pod
+
+u:(["go {back}" return] home)
+^rand["Ok!" "Right!" "Sure!"]
+^rand["I'm going back" "I'll return"] home.
+%go_home
+
+u:(["point at" show] home)
+^rand["Ok!" "Right!" "Sure!"]
+%point_at_home
+
+u:([
+    "quit"
+    "exit"
+    "close"
+])
+^rand["Bye bye!" "See you later!"]
+%quit
+
+###Come here###
+u:($empty)%come_here_human_detected
+^rand[
+    "Sure!"
+    "Sure thing!"
+    "Coming!"
+    "Gladly!"
+    "Ok!"
+    "Here I come!"
+]%start_come_here
+
+u:($empty)%come_here_human_not_detected
+^rand[
+    "Sorry, I have to see you to do that!"
+    "Sorry, I don't know where you \toi=lhp\ AR+ \toi=orth\ !"
+    "I'd love to but I can't see you!"
+    "I don't know where you are, so I can't come to you, sorry!"
+]
+
+###Follow me###
+u:($empty)%follow_me_human_detected
+^rand[
+    "Sure!"
+    "Sure thing!"
+    "Coming!"
+    "Gladly!"
+    "Ok!"
+    "Here I come!"
+]
+^rand[
+    "Tell me when to stop!"
+    "Tell me when we're done!"
+    "I'll follow you til you say otherwise!"
+]%start_follow_me
+
+u:($empty)%follow_me_human_not_detected
+^rand[
+    "Sorry, I have to see you to do that!"
+    "Sorry, I don't know where you \toi=lhp\ AR+ \toi=orth\ !"
+    "I'd love to but I can't see you!"
+    "I don't know where you are, so I can't follow you, sorry!"
+]
+
+###Gamepad###
+u:($empty)%gamepad_connected
+^rand[
+    "Sure!"
+    "Sure thing!"
+    "Ok!"
+]%start_gamepad
+
+u:($empty)%no_gamepad
+^rand[
+    "Connect ^rand[the your] gamepad using bluetooth please"
+    "First, connect ^rand[the your] gamepad via bluetooth"
+]%start_gamepad
+
+###Flap open###
+u:($empty)%charging_flap_open
+^rand[
+    "Sorry, I can't, my charging flap is open!"
+    "I can't while my charging flap is open, sorry."
+    "Please close my charging flap before!"
+]
+
+###Charging station###
+u:($empty)%cant_go_to_pod
+^rand["Oh no, " "Sorry, "] I ^rand[can't "won't be able to"] ^rand["go to" reach] ^rand["my pod, because " "my pod, "] ^rand["I don't know where it is." "I don't know its location."]
+
+###Go home###
+u:($empty)%cant_go_home
+^rand["Oh no, " "Sorry, "]
+^rand[
+    "I ^rand[can't "won't be able to"] go back
+    ^rand["home because" "home, "]
+    ^rand[
+        "I'm not localized."
+        "I don't know my localization."
+    ]"
+    "^rand[
+        "I'm not localized"
+        "I don't know my localization"
+    ], so I ^rand[can't "won't be able to"] go back home."
+]
+
+###Point At Home###
+u:($empty)%cant_point_at_home
+^rand["Oh no, " "Sorry, "]
+^rand[
+    "I ^rand[can't "won't be able to"] show where is my home
+    ^rand["home because" "home, "]
+    ^rand[
+        "I'm not localized."
+        "I don't know my localization."
+    ]"
+    "^rand[
+        "I'm not localized"
+        "I don't know my localization"
+    ], so I ^rand[can't "won't be able to"] show where is my home."
+]
+
+#QUESTIONS#
+###What can you do?###
+u:([
+    "what [can could] [you we] do?"
+    "what are your abilities?"
+    "tell me about your abilities"
+])%q_wcyd
+^rand[
+    "I can come to you and follow you around, or you can control me with a gamepad."
+    "You can ask me to come to you or to follow you, and you can also use a gamepad to make me move around."
+    "We can take a walk together, or you can use a gamepad to make me do all the walking!"
+]
+
+u:([
+    "[that's "is that"] [all it]?"
+    "what else?"
+    "[something anything nothing] else?"
+])%q_wcyd_more
+That's all for the moment!
+
+###Can you navigate?###
+u:([
+    "can you navigate?"
+    "are you able to navigate?"
+    "do you know how to navigate?"
+    "how [can do] you navigate?"
+    "navigation [manual instructions "how to"]"
+])%q_navigate
+^rand[
+    "I can come to you, or follow you around."
+    "You can ask me to come to you or to follow you."
+    "We can take a walk together, or you can ask me to come to you."
+]
+
+###How can I control you with a gamepad?###
+u:([
+    "how can I use [a the this] gamepad to [
+        "control you"
+        "[drive walk] you {around}"
+        "make you [walk roll move] {around}"
+    ]?"
+    
+    "how can I [
+        "control you"
+        "[drive walk] you {around}"
+        "make you [walk roll move] {around}"
+    ] with [a the this] gamepad?"
+    
+    "["what is" what's] [the this] gamepad for?"
+    "["what is" what's] the purpose of [the this] gamepad?"
+    "what [can could shall should] I do with [the this] gamepad?"
+    "how does [the this] gamepad work?"
+    "gamepad [manual instructions "how to"]"
+])%q_gamepad
+It's easy!
+
+u:($empty)%gamepad_connected_yes
+^rand[
+    "Press any button on the gamepad and follow the instructions to make me move around!"
+    "You just have to press one of your gamepad's buttons, and I'll display the instructions so you can move me around!"
+    "Just press a button and I'll display the instructions so you can use it to make me move around."
+]
+
+u:($empty)%gamepad_connected_no
+^rand[
+    "Connect the gamepad using bluetooth, then press any button and follow the instructions to make me move around!"
+    "You just have to connect your gamepad and press a button, and I'll display the instructions so you can use it to make me move around!"
+    "First, connect your gamepad via bluetooth, then press one of its buttons and I'll display the instructions for you!"
+]

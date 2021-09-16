@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="come_here">Viens ici</string>
+    <string name="follow_me">Suis-moi</string>
+    <string name="gamepad">Manette</string>
+    <string name="permissions_needed_warning_title">Permissions nécessaires</string>
+    <string name="permissions_needed_warning_message">Vous devez accepter les permissions demandées pour continuer.</string>
+    <string name="quit_app">Quitter</string>
+    <string name="charging_flap_open">Fermez la trappe d\'alimentation pour continuer</string>
+    <string name="home">Menu principal</string>
+    <string name="map">Carte</string>
+    <string name="go_home">Aller au point de départ</string>
+    <string name="go_to_pod">Base de chargement</string>
+    <string name="following_human">Je te suis</string>
+    <string name="no_map">Pas de carte en mémoire. Voulez-vous en créer une ?</string>
+    <string name="cant_localize">Je n\'arrive pas à me localiser. Créer une nouvelle carte ?</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+    <string name="coming_here">Je viens à toi</string>
+    <string name="mapping">Je crée une carte</string>
+    <string name="localizing">Je me localise</string>
+    <string name="quit_pod">Quitter la base de chargement ?</string>
+    <string name="mapping_mode">Comment voulez-vous construire la carte ?</string>
+    <string name="default_mapping">Mapping par défaut</string>
+    <string name="gamepad_mapping">Mapping avec manette</string>
+    <string name="point_at_home">Montrer le point de départ</string>
+    <string name="pointing_at_home">Je montre le point de départ</string>
+    <string name="going_home">Je vais au point de départ</string>
+    <string name="quit">Quitter</string>
+</resources>

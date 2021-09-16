@@ -1,0 +1,25 @@
+topic: ~localize_and_map()
+
+u:([
+    "menu principal"
+    "écran d'accueil"
+    retour
+])^endDiscuss("homepage")
+
+u:($empty)%start
+
+u:($empty)%localized
+^rand["Et voilà, " "Ok, " "C'est bon, "]
+^rand[
+    "mainteunant je sais où je suis !"
+    "je sais où je suis mainteunant !"
+    "je connais ma position !"
+]^endDiscuss("success")
+
+u:($empty)%localize_failed
+^rand[
+    "Je n'ai pas réussi à me localiser."
+    "Je ne sais pas où je suis."
+    "Je ne connais pas ma position."
+] Réessayons plus tard !
+^endDiscuss("fail")

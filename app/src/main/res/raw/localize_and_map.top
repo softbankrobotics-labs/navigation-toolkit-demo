@@ -1,0 +1,24 @@
+topic: ~localize_and_map()
+
+u:([
+    "home {page}"
+    "{go} back"
+])^endDiscuss("homepage")
+
+u:($empty)%start
+
+u:($empty)%localized
+^rand["Ok, " "Done, " "All right, "]
+^rand[
+    "now I know where I am!"
+    "I know where I am now!"
+    "I got my bearings!"
+]^endDiscuss("success")
+
+u:($empty)%localize_failed
+^rand[
+    "I can't define where I am."
+    "I can't get my bearings."
+    "I don't know where I am."
+] Let's try again later!
+^endDiscuss("fail")

@@ -1,0 +1,14 @@
+topic: ~charging_flap_open()
+
+u:([
+    "home {page}"
+    "{go} back"
+])^endDiscuss("homepage")
+
+###Flap open###
+u:($empty)%start
+^rand[
+    "Sorry, I can't, my charging flap is open!"
+    "I can't while my charging flap is open, sorry."
+    "Please close my charging flap before!"
+]

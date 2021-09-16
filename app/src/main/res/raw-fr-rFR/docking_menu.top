@@ -1,0 +1,35 @@
+topic: ~docking_menu()
+
+u:($empty)%robot_docked
+^rand[
+    "Veux-tu que je quitte ma station de chargement ?"
+    "Doije quitter ma station de chargement ?"
+    "Puije quitter ma station de chargement ?"
+]
+    u1:([
+            oui
+            d'accord
+            "pourquoi pas"
+            "["bonne" excellente] idée"
+            carrément
+            entendu
+            "avec plaisir"
+            "on va faire ça"
+            "faisons comme [ça cela ceci]"
+            ouais
+            ok
+            okay
+            allez
+            vas-y
+            "c'est parti"
+            "on [essaye tente essaie] {ça}"
+            "on peut [essayer tenter] {ça}"
+            volontier
+            "ça roule"
+            "ça marche"
+            "si tu veux"
+            "comme tu veux"
+            "si ça te fait plaisir"
+            "si ça peut te faire plaisir"
+        ])
+        %quit_pod

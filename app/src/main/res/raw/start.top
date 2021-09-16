@@ -1,0 +1,94 @@
+topic: ~start()
+
+u:([
+    "home {page}"
+    "{go} back"
+])^endDiscuss("homepage")
+
+u:($empty)%map
+^rand[
+    "I already memorized a map, "
+    "I already mapped this place, "
+    "I already \toi=lhp\ h@v \toi=orth\ a map for this place, "
+]
+just give me a ^rand[" \toi=lhp\ 'mInIt \toi=orth\ " moment] to
+^rand[
+    "check where I am."
+    "get my bearings."
+]%start_localize
+
+u:($empty)%no_map
+^rand[
+    "I don't have a map ^rand[of for] this place. Do you want me to create one?"
+    "I haven't mapped this place yet, do you want me to?"
+    "I can't find a map ^rand[of for] this place, shall I create one?"
+]
+
+u:($empty)%localize_failed
+^rand["Oh no, " "It looks like "]
+^rand[
+    "I can't localize myself from the map "
+    "I can't use the map "
+]
+^rand[
+    "I saved ^rand[earlier before], "
+    "I {already} \toi=lhp\ h@v \toi=orth\, "
+]
+^rand[
+    "do you want me to create a new one?"
+    "shall I create a new one?"
+]
+
+u:([
+    "{oh}[yes yeah yep yup]{"of course" "sure" "please"}"
+    "absolutely"
+    "totally"
+    "definitely"
+    "of course"
+    "sure"
+    "let's go"
+    "if you want"
+    "[great good excellent] idea"
+    "as you [wish want]"
+    "let's do it"
+    "{it} sounds [good great fun]"
+    "{yes yep yeah} [I'd "I would"] [like love] [to that]"
+    "why not"
+    "go [on ahead]"
+    "[ok okay] {sure "why not"}"
+])%display_mapping_menu
+
+u:([
+    "[no nah nope] {thanks "thank you" "[it's that's] [enough fine ok]"}"
+    "no {fucking} way"
+    "yeah right"
+    "{no} not [really "at all" "in the least" "right now" exactly "so much"]"
+    "I'm not interested"
+    "{no} ["I don't want to" "I'm not" "I don't"]"
+    "{I'm} not sure"
+    "I don't think so"
+    "I'll think about it"
+    "not at all"
+    "[definitely absolutely probably totally] not"
+    "in your dreams"
+    "[were are] you dreaming"
+    "dream on"
+    "not for ["the time being" "the moment"]"
+    "not so much"
+    "I ["don't agree" disagree]"
+    "no that'll work {thanks}"
+    "no it'll be fine {thanks}"
+    "no it's ok"
+    "not really"
+    "not exactly"
+    "not {quite} yet"
+    "never {"in my life"}"
+    "no thank you"
+    "not especially"
+    "I don't feel like it"
+    "not now"
+    "{maybe} later"
+    "another time"
+])%no
+^rand["Ok!" "No problem!" "All right!"]
+^endDiscuss("homepage")

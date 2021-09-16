@@ -1,0 +1,33 @@
+topic: ~mapping_menu()
+
+u:([
+    "home {page}"
+    "{go} back"
+])^endDiscuss("homepage")
+
+###Mapping###
+u:($empty)%start
+^rand[
+    "How would you like me to ^rand["build the map" "map this place"]?"
+    "How should I ^rand["build the map" "map this place"]?"
+    "Tell me how you want me to ^rand["build the map" "map this place"]!"
+]
+
+u:("default")%default_mapping
+^rand["Ok, " "All right, " "Great, "]
+^rand[
+    "let me have a look around to build my map. "
+    "I'll start mapping then."
+    "I'll have a look around and start building my map."
+]
+Please ^rand[step stand] back for a ^rand[" \toi=lhp\ 'mInIt \toi=orth\ " moment].
+%start_default_mapping
+
+u:("gamepad")
+%gamepad_mapping
+
+u:($empty)%no_gamepad
+^rand[
+    "Connect ^rand[the your] gamepad using bluetooth please"
+    "First, connect ^rand[the your] gamepad via bluetooth"
+]

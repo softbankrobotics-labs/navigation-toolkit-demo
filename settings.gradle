@@ -1,0 +1,3 @@
+include ':autonomousrecharge'
+include ':app'
+rootProject.name = "Navigation Toolkit Demo"

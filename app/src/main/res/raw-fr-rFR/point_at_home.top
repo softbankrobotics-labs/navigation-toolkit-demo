@@ -1,0 +1,25 @@
+topic: ~point_at_home()
+
+u:($empty)%point_at_home
+^rand[
+    "Voilà où se trouve mon point de départ"
+    "Le centre de ma carte se trouve là-bas"
+]
+
+u:($empty)%map_frame_too_close
+"Le point de départ de ma carte se trouve là où je suis"
+
+u:([
+    "menu principal"
+    "écran d'accueil"
+    retour
+])^endDiscuss("homepage")
+
+u:([
+    stop
+    "c'est [bon fini]"
+])%stop
+^rand[
+    "Ok!"
+    "Compris!"
+]^endDiscuss("stop")

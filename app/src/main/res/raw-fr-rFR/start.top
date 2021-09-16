@@ -1,0 +1,86 @@
+topic: ~start()
+
+u:([
+    "menu principal"
+    "écran d'accueil"
+    retour
+])^endDiscuss("homepage")
+
+u:($empty)%map
+^rand[
+    "J'ai déjà une carte en mémoire, "
+    "J'ai déjà mémorisé une carte, "
+    "J'ai déjà une carte pour cet endroit, "
+]
+^rand[laisse-moi donne-moi] juste un ^rand[instant moment] pour me localiser.%start_localize
+
+u:($empty)%no_map
+^rand[
+    "Je n'ai pas de carte ^rand[de pour] cet endroit. Veux-tu que j'en crée une ?"
+    "Je n'ai pas encore créé de carte ^rand[de pour] cet endroit, veux-tu que je le fasse ?"
+    "Je ne trouve pas de carte ^rand[de pour] cet endroit, veux-tu que j'en crée une ?"
+]
+
+u:($empty)%localize_failed
+^rand[
+    "Oh non, je n'arrive pa à me localiser dans la carte que j'ai "
+    "On dirait que je ne peux pa utiliser la carte que j'ai "
+    "Oh non, je n'arrive pa à utiliser la carte que j'ai "
+]
+^rand[
+    "en mémoire, "
+    "mémorisée, "
+]
+veux-tu que j'en crée une ^rand[autre nouvelle] ?
+
+u:([
+    oui
+    d'accord
+    "pourquoi pas"
+    "["bonne" excellente] idée"
+    carrément
+    entendu
+    "avec plaisir"
+    "on va faire ça"
+    "faisons comme [ça cela ceci]"
+    ouais
+    ok
+    okay
+    allez
+    vas-y
+    "c'est parti"
+    "on [essaye tente essaie] {ça}"
+    "on peut [essayer tenter] {ça}"
+    volontier
+    "ça roule"
+    "ça marche"
+    "si tu veux"
+    "comme tu veux"
+    "si ça te fait plaisir"
+    "si ça peut te faire plaisir"
+])%display_mapping_menu
+
+u:([
+    "non {merci non "non et non"}"
+    nope
+    nan
+    bof
+    "{non} [
+        "je {ne} suis pas [d'accord intéressé]"
+        "["je n'ai" j'ai] pas envie"
+        "je {ne} crois pas"
+        "ça [ira "va aller"]"
+        "pas [vraiment "du tout" "le moins du monde" spécialement question]"
+        aucunement nullement jamais
+        "[surtout absolument] pas"
+        "tu peux {toujours} [rêver courir rouler]"
+        "t'as rêvé"
+        "pas [maintenant vraiment tellement forcément trop "tout a fait" "pour [l'instant "le moment"]"]"
+        "jamais de la vie"
+        "ça {ne} me ["dit rien" "[tente parle] pas"]"
+        "sans façon"
+        "{"y a"} pas moyen"
+    ]"
+])%no
+^rand["Ok!" "D'accord." "Pas de problème!"]
+^endDiscuss("homepage")

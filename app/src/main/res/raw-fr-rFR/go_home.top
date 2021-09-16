@@ -1,0 +1,17 @@
+topic: ~go_home()
+
+u:([
+    "menu principal"
+    "écran d'accueil"
+    retour
+])^endDiscuss("homepage")
+
+u:($empty)%go_home_done
+^rand["Et voilà, " "\toi=lhp\ 'sajE \toi=orth\ , " "C'est bon, "]
+je sui {reveunu "de nouveau" arrivé} à monpwin de départ !
+^endDiscuss("success")
+
+u:($empty)%go_home_error
+^rand["Malheureusement, " "Désolé, " "Oh non, "]
+je n'ai pas réussi à ^rand["^rand[aller retourner reveunir] à" retrouver] monpwin de départ.
+^endDiscuss("fail")

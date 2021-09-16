@@ -1,0 +1,27 @@
+topic: ~mapping_menu()
+
+u:([
+    "menu principal"
+    "écran d'accueil"
+    retour
+])^endDiscuss("homepage")
+
+###Mapping###
+u:($empty)%start
+^rand[
+    "Comment veux-tu que je construise la carte ?"
+    "Comment doije construire la carte ?"
+    "Dis-moi comment tu veux que je construise la carte !"
+]
+
+u:("défaut")%default_mapping
+^rand["Ok, " "D'accord, " "Super, "]
+^rand["laisse-moi " "je vais "]
+regarder aux alentours pour construire ^rand[ma "la nouvelle"] carte. Reste ^rand[éloigné loin] de moi pendant ^rand["un moment" "quelque temps"] s'il te plaît.
+%start_default_mapping
+
+u:("manette")
+%gamepad_mapping
+
+u:($empty)%no_gamepad
+^rand["D'abord, konekt te" Konekt te] ^rand[la ta] manette en bluetooth, pui appuie sur ^rand["n'importe quel bouton" "l'un des boutons"] quand c'est ^rand[fait bon]!

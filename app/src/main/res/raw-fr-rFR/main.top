@@ -1,0 +1,237 @@
+topic: ~main()
+
+###Home page###
+u:([
+    "menu principal"
+    "écran d'accueil"
+    retour
+])%start
+^rand[
+    "Hello!"
+    "Salut!"
+    "Bonjour!"
+]
+^rand[
+    "Que puij faire pour toi?"
+    "Comment puij t'aider?"
+    "Que fait-on mainteunant?"
+]
+
+u1:([
+    "viens [ici là "par [ici là]" "près de moi" "vers moi" "plus près" "à côté de moi"]"
+    "mets-toi ["près de moi" "à côté de moi" "plus près"]"
+    "au pied"
+    approche
+    approche-toi
+    rapproche-toi
+    "[avance marche roule] vers moi"
+])%come_here
+\pau=1\
+
+u:([
+    suis-moi
+    "viens avec moi"
+    "on part en [balade promenade]"
+    "je t'emmène en [balade promenade]"
+    "marchons ensemble"
+    "allez viens"
+])%follow_me
+\pau=1\
+
+u:([
+    "[
+        "["{"est-ce que"} je [peux pourrais]" puis-je pourrais-je]"
+        "j'aimerais"
+        "je voudrais"
+    ][
+        "te [contrôler conduire guider "faire [bouger marcher rouler]"]["avec ["le gamepad" "la manette"]" "au gamepad" "à la manette"]"
+        "utiliser ["le gamepad" "la manette"]"
+    ]"
+
+    "[c'est est-il] possible [
+        "de te [contrôler conduire guider "faire [bouger marcher rouler]"] ["avec ["le gamepad" "la manette"]" "au gamepad" "à la manette"]"
+        "d'utiliser ["le gamepad" "la manette"]"
+    ]"
+
+    gamepad
+    manette
+])%gamepad
+
+u:([
+    "[crée fais] [une la ta] carte"
+    mapping
+])%display_mapping_menu
+
+u:([
+    "va [au "à ton" "sur [le ton]"] pod"
+    "va te [charger recharger]"
+    "{station de} rechargement"
+    "{station de} chargement"
+])
+^rand["Ok, " "D'accord, " "C'est parti, "]
+^rand[
+    "je vai ^rand[à sur] ma station de chargement."
+    "^rand[laisse-moi donne-moi] une minute pour ^rand[rejoindre "aller ^rand[à sur]"] ma station de chargement."
+]
+%go_to_pod
+
+u:(aller au point de départ)
+^rand["Ok, " "D'accord, " "C'est parti, "]
+^rand[
+    laisse-moi ^rand[retourner "me positionner"]
+    "je retourne {"me positionner"}"
+    "je vai {"me positionner" retourner}"
+    "je reviens {"me positionner"}"
+] à monpwin de départ.
+%go_home
+
+u:([montrer montre] {le} point de départ)
+^rand["Ok, " "D'accord, " "C'est parti, "]
+%point_at_home
+
+u:([
+    "quitter"
+    "fermer"
+])
+^rand["A bientôt !" "Au revoir !"]
+%quit
+
+###Come here###
+u:($empty)%come_here_human_detected
+^rand[
+    "Ok!"
+    "Bien sûr!"
+    "J'arrive!"
+]%start_come_here
+
+u:($empty)%come_here_human_not_detected
+^rand[
+    "Désolé, je dois te voir pour pouvoir faire ça!"
+    "Désolé, je ne sais pa où tu es!"
+    "J'aimerais bien, mais je ne sais pa où tu es!"
+    "Je ne te vois pas donc je ne peux pas venir, désolé!"
+]
+
+###Follow me###
+u:($empty)%follow_me_human_detected
+^rand[
+    "Ok!"
+    "Bien sûr!"
+    "C'est parti!"
+]
+^rand[
+    "Dis-moi quand on sera arrivés!"
+    "Tu peux me dire stop \pau=1\ quand tu veux!"
+    "Je te suivrai \toi=lhp\ Zyskas \toi=orth\ que tu me dises d'arrêter!"
+]%start_follow_me
+
+u:($empty)%follow_me_human_not_detected
+^rand[
+    "Désolé, je dois te voir pour pouvoir faire ça!"
+    "Désolé, je ne sais pa où tu es!"
+    "J'aimerais bien, mais je ne sais pa où tu es!"
+    "Je ne te vois pas donc je ne peux pas te suivre, désolé!"
+]
+
+###Gamepad###
+u:($empty)%gamepad_connected
+^rand[
+    "Ok!"
+    "Bien sûr!"
+    "C'est parti!"
+]%start_gamepad
+
+u:($empty)%no_gamepad
+^rand["D'abord, konekt te" Konekt te] ^rand[la ta] manette en bluetooth, pui appuie sur ^rand["n'importe quel bouton" "l'un des boutons"] quand c'est ^rand[fait bon]!
+%start_gamepad
+
+###Flap open###
+u:($empty)%charging_flap_open
+^rand[
+    "Je ne peux pas désolé, ma \toi=lhp\ tRap \toi=orth\ arrière est ouverte!"
+    "Désolé, je ne peux pas tant que ma \toi=lhp\ tRap \toi=orth\ arrière est ouverte!"
+    "Ferme ma \toi=lhp\ tRap \toi=orth\ arrière d'abord s'il te plaît!"
+]
+
+###Charging station###
+u:($empty)%cant_go_to_pod
+^rand["Malheureusement, " "Désolé, " "Oh non, "]
+je ne ^rand[peux pourrai] pa ^rand[atteindre rejoindre "aller ^rand[à sur]"] ma station de chargement car je ne ^rand["sais pa où elle est." "connais pas son emplacement."]
+
+###Go home###
+u:($empty)%cant_go_home
+^rand["Malheureusement, " "Désolé, " "Oh non, " "$empty"]
+^rand[
+    "Je ne ^rand[peux pourrai] pa"
+    "Je n'arriverai pa à"
+]
+^rand["^rand[aller retourner reveunir] à" retrouver] monpwindeu départ car je ne ^rand["suis pas localisé." "connais pas ma localisation."]
+
+###Point At Home###
+u:($empty)%cant_point_at_home
+^rand["Malheureusement, " "Désolé, " "Oh non, " "$empty"]
+^rand[
+    "Je ne ^rand[peux pourrai] pa"
+    "Je n'arriverai pa à"
+]
+montrer monpwindeu départ car je ne ^rand["suis pas localisé." "connais pas ma localisation."]
+
+#QUESTIONS#
+###What can you do?###
+u:([
+    "que [peux-tu sais-tu] faire ?"
+    "qu'est-ce que tu [peux sais] faire ?"
+    "tu [peux sais] faire quoi ?"
+    "dis-moi ce que tu [peux sais] faire ?"
+    "["tu peux" peux-tu] me dire ce que tu [peux sais] faire ?"
+    "qu'est-ce que c'est {que} tes fonctionnalités ?"
+    "quelles sont tes fonctionnalités ?"
+    "c'est quoi tes fonctionnalités ?"
+])%q_wcyd
+^rand[
+    "Je peux venir vers toi et te suivre, ou tu peux me contrôler avec ^rand[la ta] manette."
+    "Tu peux me demander de venir vers toi ou de te suivre, ou me contrôler avec ^rand[la ta] manette."
+    "On peut se promener ensemble, ou tu peu utiliser ^rand[la ta] manette pour me \toi=lhp\ pROmneu \toi=orth\ tu veux!"
+]
+
+u:([
+    "c'est tout ?"
+    "{"et sinon"} quoi [encore d'autre] ?"
+    "{"et sinon"} autre chose ?"
+    "et sinon quoi ?"
+    "["tu en as" "t'en as"] {pas} d'autres ?"
+    "tu n'en as pas d'autres ?"
+])%q_wcyd_more
+C'est tout pour le moment!
+
+###Can you navigate?###
+u:([
+    "[
+        "tu peux"
+        peux-tu
+        "["tu sais" sais-tu] {comment}"
+        "["tu es" es-tu t'es] capable de"
+        "comment ["tu fais" fais-tu] pour"
+    ][naviguer "faire de la navigation"]"
+    navigation
+])%q_navigate
+^rand[
+    "Je peux venir vers toi, ou te suivre."
+    "Tu peux me demander de venir vers toi ou de te suivre."
+    "On peut se balader ensemble, ou tu peux me demander de venir vers toi."
+]
+
+###How can I control you with a gamepad?###
+u:([
+    "comment ["je peux" puis-je "je fais pour" "faire pour"] utiliser ["[le un] gamepad" "[la une] manette"] pour te [contrôler conduire guider "faire [bouger marcher rouler]"]"
+    "comment ["je peux" puis-je "je fais pour"] te [contrôler conduire guider "faire [bouger marcher rouler]"] ["avec ["[le un] gamepad" "[la une] manette"]" "au gamepad" "à la manette"]"
+    "["à quoi sert" "c'est pourquoi" "comment {ça} marche"] ["[le ce] gamepad" "[la cette] manette"]"
+    "["[le ce] gamepad" "[la cette] manette"] sert à quoi"
+])%q_gamepad
+C'est facile!
+
+u:($empty)%gamepad_connected_yes
+Appuie sur ^rand["n'importe quel bouton" "l'un des boutons"] et ^rand["suis juste" j'afficherai] les instructions pour me faire bouger!
+
+u:($empty)%gamepad_connected_no
+Konekt te ^rand[la ta] manette en bluetooth, pui appuie sur ^rand["n'importe quel bouton" "l'un des boutons"] et ^rand["suis juste" j'afficherai] les instructions pour me faire bouger!

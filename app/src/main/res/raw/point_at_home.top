@@ -1,0 +1,21 @@
+topic: ~point_at_home()
+
+u:($empty)%point_at_home
+^rand[
+    "Here is my home"
+    "Here is the center of my map"
+]
+
+u:($empty)%map_frame_too_close
+"Home is right where I am right now!"
+
+u:([
+    "home {page}"
+    "{go} back"
+])^endDiscuss("homepage")
+
+u:(stop)%stop
+^rand[
+    "Got it!"
+    "Ok!"
+]^endDiscuss("stop")

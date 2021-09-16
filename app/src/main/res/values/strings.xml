@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name" translatable="false">Navigation Toolkit Demo</string>
+    <string name="come_here">Come here</string>
+    <string name="follow_me">Follow me</string>
+    <string name="gamepad">Gamepad</string>
+    <string name="permissions_needed_warning_title">Permissions needed</string>
+    <string name="permissions_needed_warning_message">You need to accept the permissions to continue.</string>
+    <string name="quit_app">Quit</string>
+    <string name="charging_flap_open">Please close the charging flap to continue</string>
+    <string name="home">Home</string>
+    <string name="map">Mapping</string>
+    <string name="go_home">Go Home</string>
+    <string name="go_to_pod">Go to pod</string>
+    <string name="following_human">Following human</string>
+    <string name="no_map">No map was found, create a new one?</string>
+    <string name="cant_localize">Can\'t localize in map, create a new one?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="coming_here">Coming to you</string>
+    <string name="mapping">Mapping</string>
+    <string name="localizing">Localizing</string>
+    <string name="quit_pod">Do you want to undock?</string>
+    <string name="mapping_mode">How do you want to make the map?</string>
+    <string name="default_mapping">Default mapping</string>
+    <string name="gamepad_mapping">Mapping with gamepad</string>
+    <string name="point_at_home">Point at Home</string>
+    <string name="pointing_at_home">Pointing at Home</string>
+    <string name="going_home">Going Home</string>
+    <string name="quit">Quit</string>
+</resources>

@@ -1,0 +1,8 @@
+topic: ~gamepad()
+
+u:($empty)%start
+
+u:([
+    "home {page}"
+    "{go} back"
+])^endDiscuss("homepage")

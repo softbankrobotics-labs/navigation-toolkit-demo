@@ -1,0 +1,20 @@
+topic: ~go_home()
+
+u:([
+    "home {page}"
+    "{go} back"
+])^endDiscuss("homepage")
+
+u:($empty)%go_home_done
+^rand["Ok!" "Great!" "All right!"]
+I made it {back} home!
+^endDiscuss("success")
+
+u:($empty)%go_home_fail
+^rand["Oh no, " "Sorry, "]
+I ^rand[
+    "^rand["didn't manage to go" "couldn't go"] {back} home"
+    "wasn't able to go home"
+    "^rand[didn't couldn't "wasn't able to"] make it back home"
+].
+^endDiscuss("fail")

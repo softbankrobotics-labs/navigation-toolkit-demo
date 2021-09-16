@@ -1,0 +1,30 @@
+topic: ~follow_me()
+
+u:($empty)%start
+
+u:([
+    "home {page}"
+    "{go} back"
+])^endDiscuss("homepage")
+
+u:([
+    stop
+    "stop following me"
+    "stop {right} here"
+    "we're here"
+    "we're done"
+    "stay here"
+    otherwise
+])%stop
+^rand[
+    "Got it!"
+    "It was nice!"
+    "Ok!"
+]^endDiscuss("stop")
+
+u:($empty)%come_here_done
+^rand[
+    "Here I am!"
+    "And done!"
+    "There you go!"
+]^endDiscuss("end")

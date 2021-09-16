@@ -1,0 +1,15 @@
+topic: ~charging_flap_open()
+
+u:([
+    "menu principal"
+    "écran d'accueil"
+    retour
+])^endDiscuss("homepage")
+
+###Flap open###
+u:($empty)%start
+^rand[
+    "Je ne peux pas désolé, ma \toi=lhp\ tRap \toi=orth\ arrière est ouverte!"
+    "Désolé, je ne peux pas tant que ma \toi=lhp\ tRap \toi=orth\ arrière est ouverte!"
+    "Ferme ma \toi=lhp\ tRap \toi=orth\ arrière d'abord s'il te plaît!"
+]

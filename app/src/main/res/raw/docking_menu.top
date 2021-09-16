@@ -1,0 +1,27 @@
+topic: ~docking_menu()
+
+u:($empty)%start
+^rand[
+    "Should I leave my pod now?"
+    "Do you want me to leave my pod now?"
+    "Is it ok to leave my pod now?"
+]
+    u1:([
+            "{oh}[yes yeah yep yup]{"of course" "sure" "please"}"
+            "absolutely"
+            "totally"
+            "definitely"
+            "of course"
+            "sure"
+            "let's go"
+            "if you want"
+            "[great good excellent] idea"
+            "as you [wish want]"
+            "let's do it"
+            "{it} sounds [good great fun]"
+            "{yes yep yeah} [I'd "I would"] [like love] [to that]"
+            "why not"
+            "go [on ahead]"
+            "[ok okay] {sure "why not"}"
+        ])
+        ^endDiscuss("quit_pod")

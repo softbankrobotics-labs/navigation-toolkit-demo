@@ -1,0 +1,31 @@
+topic: ~follow_me()
+
+u:($empty)%start
+
+u:([
+    "menu principal"
+    "écran d'accueil"
+    retour
+])^endDiscuss("homepage")
+
+u:([
+    stop
+    arrête
+    arrête-toi
+    "c'est [bon fini]"
+    "on est arrivés"
+    "nous sommes arrivés"
+    "reste ici"
+])%stop
+^rand[
+    "Ok!"
+    "Compris!"
+    "C'était sympa!"
+]^endDiscuss("stop")
+
+u:($empty)%come_here_done
+^rand[
+    "Et voilà!"
+    "Me voilà!"
+    "J'y suis!"
+]^endDiscuss("end")

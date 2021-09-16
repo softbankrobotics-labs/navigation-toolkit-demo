@@ -1,0 +1,9 @@
+topic: ~gamepad()
+
+u:($empty)%start
+
+u:([
+    "menu principal"
+    "écran d'accueil"
+    retour
+])^endDiscuss("homepage")
